@@ -28,13 +28,13 @@ app.get('/api/:filename', (req, res) => {
 		else {
 			res.writeHead(200, {'Content-Type': 'image/png'})
 			
-			return res.end(data)
+			res.end(data)
 		}
 	})
 })
 
 app.post('/api/upload', upload.single('image'), (req, res) => {
-	res.send(req.file)
+	res.json(req.file)
 })
 
 const port = process.env.port || 3000
